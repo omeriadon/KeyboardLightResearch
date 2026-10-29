@@ -1,0 +1,459 @@
+(lldb) target create "./probe"
+Current executable set to '/Users/omeriadon/.t3/scratch/2026-10-29-i-want-you-to-do-e3fbaf44/probe' (arm64).
+(lldb) breakpoint set --name copyKeyboardBacklightIDs
+Breakpoint 1: no locations (pending).
+WARNING:  Unable to resolve breakpoint to any actual locations.
+(lldb) run
+1 location added to breakpoint 1
+Process 6878 launched: '/Users/omeriadon/.t3/scratch/2026-10-29-i-want-you-to-do-e3fbaf44/probe' (arm64)
+Process 6878 stopped
+* thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+       frame #0: 0x00000001c3d15588 CoreBrightness`-[KeyboardBrightnessClient copyKeyboardBacklightIDs]
+CoreBrightness`-[KeyboardBrightnessClient copyKeyboardBacklightIDs]:
+->  0x1c3d15588 <+0>:  pacibsp 
+    0x1c3d1558c <+4>:  stp    x20, x19, [sp, #-0x20]!
+    0x1c3d15590 <+8>:  stp    x29, x30, [sp, #0x10]
+    0x1c3d15594 <+12>: add    x29, sp, #0x10
+Target 0: (probe) stopped.
+(lldb) disassemble --name "-[KeyboardBrightnessClient setBrightness:fadeSpeed:commit:forKeyboard:]"
+CoreBrightness`-[KeyboardBrightnessClient setBrightness:fadeSpeed:commit:forKeyboard:]:
+    0x1c3d159a8 <+0>:   pacibsp 
+    0x1c3d159ac <+4>:   sub    sp, sp, #0xd0
+    0x1c3d159b0 <+8>:   stp    d9, d8, [sp, #0x70]
+    0x1c3d159b4 <+12>:  stp    x26, x25, [sp, #0x80]
+    0x1c3d159b8 <+16>:  stp    x24, x23, [sp, #0x90]
+    0x1c3d159bc <+20>:  stp    x22, x21, [sp, #0xa0]
+    0x1c3d159c0 <+24>:  stp    x20, x19, [sp, #0xb0]
+    0x1c3d159c4 <+28>:  stp    x29, x30, [sp, #0xc0]
+    0x1c3d159c8 <+32>:  add    x29, sp, #0xc0
+    0x1c3d159cc <+36>:  mov    x22, x4
+    0x1c3d159d0 <+40>:  mov    x20, x3
+    0x1c3d159d4 <+44>:  mov    x21, x2
+    0x1c3d159d8 <+48>:  mov.16b v8, v0
+    0x1c3d159dc <+52>:  mov    x24, x0
+    0x1c3d159e0 <+56>:  adrp   x8, 139019
+    0x1c3d159e4 <+60>:  ldr    x8, [x8, #0x7f0]
+    0x1c3d159e8 <+64>:  ldr    x8, [x8]
+    0x1c3d159ec <+68>:  stur   x8, [x29, #-0x58]
+    0x1c3d159f0 <+72>:  bl     0x1c5b3b180
+    0x1c3d159f4 <+76>:  mov    x19, x0
+    0x1c3d159f8 <+80>:  adrp   x8, 166316
+    0x1c3d159fc <+84>:  add    x8, x8, #0xb08            ; @"Brightness"
+    0x1c3d15a00 <+88>:  str    x8, [sp, #0x38]
+    0x1c3d15a04 <+92>:  adrp   x23, 138928
+    0x1c3d15a08 <+96>:  ldr    x0, [x23, #0xd08]
+    0x1c3d15a0c <+100>: mov.16b v0, v8
+    0x1c3d15a10 <+104>: bl     0x1c5a88430
+    0x1c3d15a14 <+108>: adrp   x8, 166324
+    0x1c3d15a18 <+112>: add    x8, x8, #0x528            ; @"FadeSpeed"
+    0x1c3d15a1c <+116>: str    x0, [sp, #0x50]
+    0x1c3d15a20 <+120>: str    x8, [sp, #0x40]
+    0x1c3d15a24 <+124>: ldr    x0, [x23, #0xd08]
+    0x1c3d15a28 <+128>: sxtw   x2, w21
+    0x1c3d15a2c <+132>: bl     0x1c5a88450
+    0x1c3d15a30 <+136>: adrp   x8, 166316
+    0x1c3d15a34 <+140>: add    x8, x8, #0xb28            ; @"Commit"
+    0x1c3d15a38 <+144>: str    x0, [sp, #0x58]
+    0x1c3d15a3c <+148>: str    x8, [sp, #0x48]
+    0x1c3d15a40 <+152>: ldr    x0, [x23, #0xd08]
+    0x1c3d15a44 <+156>: mov    x2, x20
+    0x1c3d15a48 <+160>: bl     0x1c5a88410
+    0x1c3d15a4c <+164>: adrp   x8, 138914
+    0x1c3d15a50 <+168>: ldr    x8, [x8, #0x9a8]
+    0x1c3d15a54 <+172>: str    x0, [sp, #0x60]
+    0x1c3d15a58 <+176>: add    x2, sp, #0x50
+    0x1c3d15a5c <+180>: add    x3, sp, #0x38
+    0x1c3d15a60 <+184>: mov    x0, x8
+    0x1c3d15a64 <+188>: mov    w4, #0x3                  ; =3 
+    0x1c3d15a68 <+192>: bl     0x1c5a770a0
+    0x1c3d15a6c <+196>: mov    x25, x0
+    0x1c3d15a70 <+200>: ldr    x0, [x24, #0x8]
+    0x1c3d15a74 <+204>: adrp   x26, 166322
+    0x1c3d15a78 <+208>: add    x26, x26, #0xce8          ; @"KeyboardBacklightBrightness"
+    0x1c3d15a7c <+212>: mov    x2, x25
+    0x1c3d15a80 <+216>: mov    x3, x26
+    0x1c3d15a84 <+220>: mov    x4, x22
+    0x1c3d15a88 <+224>: bl     0x1c5af9910
+    0x1c3d15a8c <+228>: mov    x23, x0
+    0x1c3d15a90 <+232>: ldr    x24, [x24, #0x10]
+    0x1c3d15a94 <+236>: cbnz   x24, 0x1c3d15ab0          ; <+264>
+    0x1c3d15a98 <+240>: adrp   x8, 196869
+    0x1c3d15a9c <+244>: add    x8, x8, #0x230            ; _COREBRIGHTNESS_LOG_DEFAULT
+    0x1c3d15aa0 <+248>: ldr    x24, [x8]
+    0x1c3d15aa4 <+252>: cbnz   x24, 0x1c3d15ab0          ; <+264>
+    0x1c3d15aa8 <+256>: bl     0x1c3c7e3f8               ; init_default_corebrightness_log
+    0x1c3d15aac <+260>: mov    x24, x0
+    0x1c3d15ab0 <+264>: mov    x0, x24
+    0x1c3d15ab4 <+268>: mov    w1, #0x2                  ; =2 
+    0x1c3d15ab8 <+272>: bl     0x1c5b3b420
+    0x1c3d15abc <+276>: cbnz   w0, 0x1c3d15b04           ; <+348>
+    0x1c3d15ac0 <+280>: mov    x0, x19
+    0x1c3d15ac4 <+284>: bl     0x1c5b3b170
+    0x1c3d15ac8 <+288>: ldur   x8, [x29, #-0x58]
+    0x1c3d15acc <+292>: adrp   x9, 139019
+    0x1c3d15ad0 <+296>: ldr    x9, [x9, #0x7f0]
+    0x1c3d15ad4 <+300>: ldr    x9, [x9]
+    0x1c3d15ad8 <+304>: cmp    x9, x8
+    0x1c3d15adc <+308>: b.ne   0x1c3d15b8c               ; <+484>
+    0x1c3d15ae0 <+312>: mov    x0, x23
+    0x1c3d15ae4 <+316>: ldp    x29, x30, [sp, #0xc0]
+    0x1c3d15ae8 <+320>: ldp    x20, x19, [sp, #0xb0]
+    0x1c3d15aec <+324>: ldp    x22, x21, [sp, #0xa0]
+    0x1c3d15af0 <+328>: ldp    x24, x23, [sp, #0x90]
+    0x1c3d15af4 <+332>: ldp    x26, x25, [sp, #0x80]
+    0x1c3d15af8 <+336>: ldp    d9, d8, [sp, #0x70]
+    0x1c3d15afc <+340>: add    sp, sp, #0xd0
+    0x1c3d15b00 <+344>: retab  
+    0x1c3d15b04 <+348>: adrp   x8, 147
+    0x1c3d15b08 <+352>: add    x8, x8, #0xe0f            ; "failed"
+    0x1c3d15b0c <+356>: adrp   x9, 146
+    0x1c3d15b10 <+360>: add    x9, x9, #0x5d6            ; "success"
+    0x1c3d15b14 <+364>: cmp    w23, #0x0
+    0x1c3d15b18 <+368>: csel   x8, x9, x8, ne
+    0x1c3d15b1c <+372>: adrp   x9, 160
+    0x1c3d15b20 <+376>: ldr    d0, [x9, #0x4d8]
+    0x1c3d15b24 <+380>: str    s0, [sp]
+    0x1c3d15b28 <+384>: stur   x26, [sp, #0x4]
+    0x1c3d15b2c <+388>: mov    w9, #0x840                ; =2112 
+    0x1c3d15b30 <+392>: strh   w9, [sp, #0xc]
+    0x1c3d15b34 <+396>: stur   x25, [sp, #0xe]
+    0x1c3d15b38 <+400>: mov    w9, #0x800                ; =2048 
+    0x1c3d15b3c <+404>: strh   w9, [sp, #0x16]
+    0x1c3d15b40 <+408>: str    x22, [sp, #0x18]
+    0x1c3d15b44 <+412>: mov    w9, #0x400                ; =1024 
+    0x1c3d15b48 <+416>: strh   w9, [sp, #0x20]
+    0x1c3d15b4c <+420>: stur   w21, [sp, #0x22]
+    0x1c3d15b50 <+424>: strh   w9, [sp, #0x26]
+    0x1c3d15b54 <+428>: str    w20, [sp, #0x28]
+    0x1c3d15b58 <+432>: mov    w9, #0x820                ; =2080 
+    0x1c3d15b5c <+436>: strh   w9, [sp, #0x2c]
+    0x1c3d15b60 <+440>: stur   x8, [sp, #0x2e]
+    0x1c3d15b64 <+444>: adrp   x0, -241
+    0x1c3d15b68 <+448>: add    x0, x0, #0x0
+    0x1c3d15b6c <+452>: adrp   x3, 193
+    0x1c3d15b70 <+456>: add    x3, x3, #0x80             ; "key=%@ property=%@ forID = %lu fadeSpeed = %d commit = %d (%s)"
+    0x1c3d15b74 <+460>: mov    x4, sp
+    0x1c3d15b78 <+464>: mov    x1, x24
+    0x1c3d15b7c <+468>: mov    w2, #0x2                  ; =2 
+    0x1c3d15b80 <+472>: mov    w5, #0x36                 ; =54 
+    0x1c3d15b84 <+476>: bl     0x1c5b3a9d0
+    0x1c3d15b88 <+480>: b      0x1c3d15ac0               ; <+280>
+    0x1c3d15b8c <+484>: bl     0x1c5b3a970
+(lldb) disassemble --name "-[KeyboardBacklight setBrightness:withFadeSpeed:commit:]"
+CoreBrightness`-[KeyboardBacklight setBrightness:withFadeSpeed:commit:]:
+    0x1c3d0b14c <+0>:   pacibsp 
+    0x1c3d0b150 <+4>:   sub    sp, sp, #0x70
+    0x1c3d0b154 <+8>:   stp    d9, d8, [sp, #0x20]
+    0x1c3d0b158 <+12>:  stp    x24, x23, [sp, #0x30]
+    0x1c3d0b15c <+16>:  stp    x22, x21, [sp, #0x40]
+    0x1c3d0b160 <+20>:  stp    x20, x19, [sp, #0x50]
+    0x1c3d0b164 <+24>:  stp    x29, x30, [sp, #0x60]
+    0x1c3d0b168 <+28>:  add    x29, sp, #0x60
+    0x1c3d0b16c <+32>:  mov    x20, x3
+    0x1c3d0b170 <+36>:  mov    x21, x2
+    0x1c3d0b174 <+40>:  mov.16b v8, v0
+    0x1c3d0b178 <+44>:  mov    x19, x0
+    0x1c3d0b17c <+48>:  adrp   x8, 189454
+    0x1c3d0b180 <+52>:  add    x8, x8, #0x304            ; CBModule._logHandle
+    0x1c3d0b184 <+56>:  ldrsw  x23, [x8]
+    0x1c3d0b188 <+60>:  add    x8, x0, x23
+    0x1c3d0b18c <+64>:  ldr    x22, [x8]
+    0x1c3d0b190 <+68>:  cbnz   x22, 0x1c3d0b1ac          ; <+96>
+    0x1c3d0b194 <+72>:  adrp   x8, 196879
+    0x1c3d0b198 <+76>:  add    x8, x8, #0x230            ; _COREBRIGHTNESS_LOG_DEFAULT
+    0x1c3d0b19c <+80>:  ldr    x22, [x8]
+    0x1c3d0b1a0 <+84>:  cbnz   x22, 0x1c3d0b1ac          ; <+96>
+    0x1c3d0b1a4 <+88>:  bl     0x1c3c7e3f8               ; init_default_corebrightness_log
+    0x1c3d0b1a8 <+92>:  mov    x22, x0
+    0x1c3d0b1ac <+96>:  mov    x0, x22
+    0x1c3d0b1b0 <+100>: mov    w1, #0x2                  ; =2 
+    0x1c3d0b1b4 <+104>: bl     0x1c5b3b420
+    0x1c3d0b1b8 <+108>: cbnz   w0, 0x1c3d0b2f4           ; <+424>
+    0x1c3d0b1bc <+112>: mov    x0, x19
+    0x1c3d0b1c0 <+116>: bl     0x1c5af7400
+    0x1c3d0b1c4 <+120>: cbz    w0, 0x1c3d0b280           ; <+308>
+    0x1c3d0b1c8 <+124>: movi.2d v0, #0000000000000000
+    0x1c3d0b1cc <+128>: fmaxnm s0, s8, s0
+    0x1c3d0b1d0 <+132>: fmov   s1, #1.00000000
+    0x1c3d0b1d4 <+136>: fminnm s0, s0, s1
+    0x1c3d0b1d8 <+140>: mov    x0, x19
+    0x1c3d0b1dc <+144>: bl     0x1c5af9500
+    0x1c3d0b1e0 <+148>: mov    x0, x19
+    0x1c3d0b1e4 <+152>: mov    w2, #0x0                  ; =0 
+    0x1c3d0b1e8 <+156>: bl     0x1c5af9a70
+    0x1c3d0b1ec <+160>: mov    x0, x19
+    0x1c3d0b1f0 <+164>: bl     0x1c5af7060
+    0x1c3d0b1f4 <+168>: fcmp   s0, #0.0
+    0x1c3d0b1f8 <+172>: cset   w2, eq
+    0x1c3d0b1fc <+176>: mov    x0, x19
+    0x1c3d0b200 <+180>: bl     0x1c5aabc40
+    0x1c3d0b204 <+184>: adrp   x8, 144757
+    0x1c3d0b208 <+188>: ldr    x22, [x8, #0x9d0]
+    0x1c3d0b20c <+192>: mov    x0, x19
+    0x1c3d0b210 <+196>: bl     0x1c5af7060
+    0x1c3d0b214 <+200>: adrp   x2, 166333
+    0x1c3d0b218 <+204>: add    x2, x2, #0xf88            ; @"KeyboardBacklightManualBrightness"
+    0x1c3d0b21c <+208>: mov    x0, x22
+    0x1c3d0b220 <+212>: bl     0x1c5af92c0
+    0x1c3d0b224 <+216>: mov    x0, x19
+    0x1c3d0b228 <+220>: bl     0x1c5afa8e0
+    0x1c3d0b22c <+224>: mov    x0, x19
+    0x1c3d0b230 <+228>: mov    x2, x21
+    0x1c3d0b234 <+232>: mov    x3, x20
+    0x1c3d0b238 <+236>: mov    w4, #0x1                  ; =1 
+    0x1c3d0b23c <+240>: bl     0x1c5afa920
+    0x1c3d0b240 <+244>: ldr    x20, [x19, x23]
+    0x1c3d0b244 <+248>: cbnz   x20, 0x1c3d0b260          ; <+276>
+    0x1c3d0b248 <+252>: adrp   x8, 196879
+    0x1c3d0b24c <+256>: add    x8, x8, #0x230            ; _COREBRIGHTNESS_LOG_DEFAULT
+    0x1c3d0b250 <+260>: ldr    x20, [x8]
+    0x1c3d0b254 <+264>: cbnz   x20, 0x1c3d0b260          ; <+276>
+    0x1c3d0b258 <+268>: bl     0x1c3c7e3f8               ; init_default_corebrightness_log
+    0x1c3d0b25c <+272>: mov    x20, x0
+    0x1c3d0b260 <+276>: mov    x0, x20
+    0x1c3d0b264 <+280>: mov    w1, #0x2                  ; =2 
+    0x1c3d0b268 <+284>: bl     0x1c5b3b420
+    0x1c3d0b26c <+288>: cbz    w0, 0x1c3d0b2d8           ; <+396>
+    0x1c3d0b270 <+292>: mov    x0, x19
+    0x1c3d0b274 <+296>: mov    x1, x20
+    0x1c3d0b278 <+300>: bl     0x1c3d8e198               ; -[KeyboardBacklight setBrightness:].cold.2
+    0x1c3d0b27c <+304>: b      0x1c3d0b2d8               ; <+396>
+    0x1c3d0b280 <+308>: ldr    x19, [x19, x23]
+    0x1c3d0b284 <+312>: cbnz   x19, 0x1c3d0b2a0          ; <+340>
+    0x1c3d0b288 <+316>: adrp   x8, 196879
+    0x1c3d0b28c <+320>: add    x8, x8, #0x230            ; _COREBRIGHTNESS_LOG_DEFAULT
+    0x1c3d0b290 <+324>: ldr    x19, [x8]
+    0x1c3d0b294 <+328>: cbnz   x19, 0x1c3d0b2a0          ; <+340>
+    0x1c3d0b298 <+332>: bl     0x1c3c7e3f8               ; init_default_corebrightness_log
+    0x1c3d0b29c <+336>: mov    x19, x0
+    0x1c3d0b2a0 <+340>: mov    x0, x19
+    0x1c3d0b2a4 <+344>: mov    w1, #0x0                  ; =0 
+    0x1c3d0b2a8 <+348>: bl     0x1c5b3b420
+    0x1c3d0b2ac <+352>: cbz    w0, 0x1c3d0b2d8           ; <+396>
+    0x1c3d0b2b0 <+356>: strh   wzr, [sp]
+    0x1c3d0b2b4 <+360>: adrp   x0, -231
+    0x1c3d0b2b8 <+364>: add    x0, x0, #0x0
+    0x1c3d0b2bc <+368>: adrp   x3, 201
+    0x1c3d0b2c0 <+372>: add    x3, x3, #0x8c2            ; "Manual keyboard brightness adjustment not allowed"
+    0x1c3d0b2c4 <+376>: mov    x4, sp
+    0x1c3d0b2c8 <+380>: mov    x1, x19
+    0x1c3d0b2cc <+384>: mov    w2, #0x0                  ; =0 
+    0x1c3d0b2d0 <+388>: mov    w5, #0x2                  ; =2 
+    0x1c3d0b2d4 <+392>: bl     0x1c5b3aa00
+    0x1c3d0b2d8 <+396>: ldp    x29, x30, [sp, #0x60]
+    0x1c3d0b2dc <+400>: ldp    x20, x19, [sp, #0x50]
+    0x1c3d0b2e0 <+404>: ldp    x22, x21, [sp, #0x40]
+    0x1c3d0b2e4 <+408>: ldp    x24, x23, [sp, #0x30]
+    0x1c3d0b2e8 <+412>: ldp    d9, d8, [sp, #0x20]
+    0x1c3d0b2ec <+416>: add    sp, sp, #0x70
+    0x1c3d0b2f0 <+420>: retab  
+    0x1c3d0b2f4 <+424>: fcvt   d9, s8
+    0x1c3d0b2f8 <+428>: mov    x0, x19
+    0x1c3d0b2fc <+432>: bl     0x1c5af7400
+    0x1c3d0b300 <+436>: adrp   x8, 161
+    0x1c3d0b304 <+440>: ldr    d0, [x8, #0x988]
+    0x1c3d0b308 <+444>: str    s0, [sp]
+    0x1c3d0b30c <+448>: stur   d9, [sp, #0x4]
+    0x1c3d0b310 <+452>: mov    w8, #0x400                ; =1024 
+    0x1c3d0b314 <+456>: strh   w8, [sp, #0xc]
+    0x1c3d0b318 <+460>: stur   w0, [sp, #0xe]
+    0x1c3d0b31c <+464>: strh   w8, [sp, #0x12]
+    0x1c3d0b320 <+468>: str    w21, [sp, #0x14]
+    0x1c3d0b324 <+472>: strh   w8, [sp, #0x18]
+    0x1c3d0b328 <+476>: stur   w20, [sp, #0x1a]
+    0x1c3d0b32c <+480>: adrp   x0, -231
+    0x1c3d0b330 <+484>: add    x0, x0, #0x0
+    0x1c3d0b334 <+488>: adrp   x3, 201
+    0x1c3d0b338 <+492>: add    x3, x3, #0x876            ; "Requested keyboard brightness %f, manualAdjust %d, fade speed %d, commit %d"
+    0x1c3d0b33c <+496>: mov    x4, sp
+    0x1c3d0b340 <+500>: mov    x1, x22
+    0x1c3d0b344 <+504>: mov    w2, #0x2                  ; =2 
+    0x1c3d0b348 <+508>: mov    w5, #0x1e                 ; =30 
+    0x1c3d0b34c <+512>: bl     0x1c5b3a9d0
+    0x1c3d0b350 <+516>: b      0x1c3d0b1bc               ; <+112>
+(lldb) disassemble --name "-[KeyboardBacklightHIDCurveNits setBrightness:withFadeSpeed:commit:]"
+CoreBrightness`-[KeyboardBacklightHIDCurveNits setBrightness:withFadeSpeed:commit:]:
+    0x1c3d357e4 <+0>:   pacibsp 
+    0x1c3d357e8 <+4>:   sub    sp, sp, #0x70
+    0x1c3d357ec <+8>:   stp    d9, d8, [sp, #0x20]
+    0x1c3d357f0 <+12>:  stp    x24, x23, [sp, #0x30]
+    0x1c3d357f4 <+16>:  stp    x22, x21, [sp, #0x40]
+    0x1c3d357f8 <+20>:  stp    x20, x19, [sp, #0x50]
+    0x1c3d357fc <+24>:  stp    x29, x30, [sp, #0x60]
+    0x1c3d35800 <+28>:  add    x29, sp, #0x60
+    0x1c3d35804 <+32>:  mov    x20, x3
+    0x1c3d35808 <+36>:  mov    x21, x2
+    0x1c3d3580c <+40>:  mov.16b v8, v0
+    0x1c3d35810 <+44>:  mov    x19, x0
+    0x1c3d35814 <+48>:  adrp   x8, 189412
+    0x1c3d35818 <+52>:  add    x8, x8, #0x304            ; CBModule._logHandle
+    0x1c3d3581c <+56>:  ldrsw  x23, [x8]
+    0x1c3d35820 <+60>:  add    x8, x0, x23
+    0x1c3d35824 <+64>:  ldr    x22, [x8]
+    0x1c3d35828 <+68>:  cbnz   x22, 0x1c3d35844          ; <+96>
+    0x1c3d3582c <+72>:  adrp   x8, 196837
+    0x1c3d35830 <+76>:  add    x8, x8, #0x230            ; _COREBRIGHTNESS_LOG_DEFAULT
+    0x1c3d35834 <+80>:  ldr    x22, [x8]
+    0x1c3d35838 <+84>:  cbnz   x22, 0x1c3d35844          ; <+96>
+    0x1c3d3583c <+88>:  bl     0x1c3c7e3f8               ; init_default_corebrightness_log
+    0x1c3d35840 <+92>:  mov    x22, x0
+    0x1c3d35844 <+96>:  mov    x0, x22
+    0x1c3d35848 <+100>: mov    w1, #0x2                  ; =2 
+    0x1c3d3584c <+104>: bl     0x1c5b3b420
+    0x1c3d35850 <+108>: cbnz   w0, 0x1c3d3599c           ; <+440>
+    0x1c3d35854 <+112>: mov    x0, x19
+    0x1c3d35858 <+116>: bl     0x1c5af7400
+    0x1c3d3585c <+120>: cbz    w0, 0x1c3d35928           ; <+324>
+    0x1c3d35860 <+124>: movi.2d v0, #0000000000000000
+    0x1c3d35864 <+128>: fmaxnm s0, s8, s0
+    0x1c3d35868 <+132>: fmov   s1, #1.00000000
+    0x1c3d3586c <+136>: fminnm s0, s0, s1
+    0x1c3d35870 <+140>: mov    x0, x19
+    0x1c3d35874 <+144>: bl     0x1c5af9500
+    0x1c3d35878 <+148>: mov    x0, x19
+    0x1c3d3587c <+152>: mov    w2, #0x0                  ; =0 
+    0x1c3d35880 <+156>: bl     0x1c5af9a70
+    0x1c3d35884 <+160>: mov    x0, x19
+    0x1c3d35888 <+164>: bl     0x1c5af7060
+    0x1c3d3588c <+168>: fcmp   s0, #0.0
+    0x1c3d35890 <+172>: cset   w2, eq
+    0x1c3d35894 <+176>: mov    x0, x19
+    0x1c3d35898 <+180>: bl     0x1c5aabc40
+    0x1c3d3589c <+184>: cbz    w20, 0x1c3d358d4          ; <+240>
+    0x1c3d358a0 <+188>: mov    x0, x19
+    0x1c3d358a4 <+192>: bl     0x1c5af39b0
+    0x1c3d358a8 <+196>: cbz    w0, 0x1c3d358b4           ; <+208>
+    0x1c3d358ac <+200>: mov    x0, x19
+    0x1c3d358b0 <+204>: bl     0x1c5afab00
+    0x1c3d358b4 <+208>: adrp   x8, 144715
+    0x1c3d358b8 <+212>: ldr    x22, [x8, #0x9d0]
+    0x1c3d358bc <+216>: mov    x0, x19
+    0x1c3d358c0 <+220>: bl     0x1c5af7060
+    0x1c3d358c4 <+224>: adrp   x2, 166291
+    0x1c3d358c8 <+228>: add    x2, x2, #0xf88            ; @"KeyboardBacklightManualBrightness"
+    0x1c3d358cc <+232>: mov    x0, x22
+    0x1c3d358d0 <+236>: bl     0x1c5af92c0
+    0x1c3d358d4 <+240>: mov    x0, x19
+    0x1c3d358d8 <+244>: mov    x2, x21
+    0x1c3d358dc <+248>: mov    x3, x20
+    0x1c3d358e0 <+252>: mov    w4, #0x1                  ; =1 
+    0x1c3d358e4 <+256>: bl     0x1c5afa920
+    0x1c3d358e8 <+260>: ldr    x20, [x19, x23]
+    0x1c3d358ec <+264>: cbnz   x20, 0x1c3d35908          ; <+292>
+    0x1c3d358f0 <+268>: adrp   x8, 196837
+    0x1c3d358f4 <+272>: add    x8, x8, #0x230            ; _COREBRIGHTNESS_LOG_DEFAULT
+    0x1c3d358f8 <+276>: ldr    x20, [x8]
+    0x1c3d358fc <+280>: cbnz   x20, 0x1c3d35908          ; <+292>
+    0x1c3d35900 <+284>: bl     0x1c3c7e3f8               ; init_default_corebrightness_log
+    0x1c3d35904 <+288>: mov    x20, x0
+    0x1c3d35908 <+292>: mov    x0, x20
+    0x1c3d3590c <+296>: mov    w1, #0x2                  ; =2 
+    0x1c3d35910 <+300>: bl     0x1c5b3b420
+    0x1c3d35914 <+304>: cbz    w0, 0x1c3d35980           ; <+412>
+    0x1c3d35918 <+308>: mov    x0, x19
+    0x1c3d3591c <+312>: mov    x1, x20
+    0x1c3d35920 <+316>: bl     0x1c3d8d9e4               ; -[KeyboardBacklightHIDCurve setBrightness:withFadeSpeed:commit:].cold.1
+    0x1c3d35924 <+320>: b      0x1c3d35980               ; <+412>
+    0x1c3d35928 <+324>: ldr    x19, [x19, x23]
+    0x1c3d3592c <+328>: cbnz   x19, 0x1c3d35948          ; <+356>
+    0x1c3d35930 <+332>: adrp   x8, 196837
+    0x1c3d35934 <+336>: add    x8, x8, #0x230            ; _COREBRIGHTNESS_LOG_DEFAULT
+    0x1c3d35938 <+340>: ldr    x19, [x8]
+    0x1c3d3593c <+344>: cbnz   x19, 0x1c3d35948          ; <+356>
+    0x1c3d35940 <+348>: bl     0x1c3c7e3f8               ; init_default_corebrightness_log
+    0x1c3d35944 <+352>: mov    x19, x0
+    0x1c3d35948 <+356>: mov    x0, x19
+    0x1c3d3594c <+360>: mov    w1, #0x0                  ; =0 
+    0x1c3d35950 <+364>: bl     0x1c5b3b420
+    0x1c3d35954 <+368>: cbz    w0, 0x1c3d35980           ; <+412>
+    0x1c3d35958 <+372>: strh   wzr, [sp]
+    0x1c3d3595c <+376>: adrp   x0, -273
+    0x1c3d35960 <+380>: add    x0, x0, #0x0
+    0x1c3d35964 <+384>: adrp   x3, 159
+    0x1c3d35968 <+388>: add    x3, x3, #0x8c2            ; "Manual keyboard brightness adjustment not allowed"
+    0x1c3d3596c <+392>: mov    x4, sp
+    0x1c3d35970 <+396>: mov    x1, x19
+    0x1c3d35974 <+400>: mov    w2, #0x0                  ; =0 
+    0x1c3d35978 <+404>: mov    w5, #0x2                  ; =2 
+    0x1c3d3597c <+408>: bl     0x1c5b3aa00
+    0x1c3d35980 <+412>: ldp    x29, x30, [sp, #0x60]
+    0x1c3d35984 <+416>: ldp    x20, x19, [sp, #0x50]
+    0x1c3d35988 <+420>: ldp    x22, x21, [sp, #0x40]
+    0x1c3d3598c <+424>: ldp    x24, x23, [sp, #0x30]
+    0x1c3d35990 <+428>: ldp    d9, d8, [sp, #0x20]
+    0x1c3d35994 <+432>: add    sp, sp, #0x70
+    0x1c3d35998 <+436>: retab  
+    0x1c3d3599c <+440>: fcvt   d9, s8
+    0x1c3d359a0 <+444>: mov    x0, x19
+    0x1c3d359a4 <+448>: bl     0x1c5af7400
+    0x1c3d359a8 <+452>: adrp   x8, 119
+    0x1c3d359ac <+456>: ldr    d0, [x8, #0x988]
+    0x1c3d359b0 <+460>: str    s0, [sp]
+    0x1c3d359b4 <+464>: stur   d9, [sp, #0x4]
+    0x1c3d359b8 <+468>: mov    w8, #0x400                ; =1024 
+    0x1c3d359bc <+472>: strh   w8, [sp, #0xc]
+    0x1c3d359c0 <+476>: stur   w0, [sp, #0xe]
+    0x1c3d359c4 <+480>: strh   w8, [sp, #0x12]
+    0x1c3d359c8 <+484>: str    w21, [sp, #0x14]
+    0x1c3d359cc <+488>: strh   w8, [sp, #0x18]
+    0x1c3d359d0 <+492>: stur   w20, [sp, #0x1a]
+    0x1c3d359d4 <+496>: adrp   x0, -273
+    0x1c3d359d8 <+500>: add    x0, x0, #0x0
+    0x1c3d359dc <+504>: adrp   x3, 159
+    0x1c3d359e0 <+508>: add    x3, x3, #0x876            ; "Requested keyboard brightness %f, manualAdjust %d, fade speed %d, commit %d"
+    0x1c3d359e4 <+512>: mov    x4, sp
+    0x1c3d359e8 <+516>: mov    x1, x22
+    0x1c3d359ec <+520>: mov    w2, #0x2                  ; =2 
+    0x1c3d359f0 <+524>: mov    w5, #0x1e                 ; =30 
+    0x1c3d359f4 <+528>: bl     0x1c5b3a9d0
+    0x1c3d359f8 <+532>: b      0x1c3d35854               ; <+112>
+(lldb) disassemble --name "-[KeyboardBacklight rampToBrightness:withDuration:]"
+CoreBrightness`-[KeyboardBacklight rampToBrightness:withDuration:]:
+    0x1c3d0eb5c <+0>:   pacibsp 
+    0x1c3d0eb60 <+4>:   stp    d9, d8, [sp, #-0x40]!
+    0x1c3d0eb64 <+8>:   stp    x22, x21, [sp, #0x10]
+    0x1c3d0eb68 <+12>:  stp    x20, x19, [sp, #0x20]
+    0x1c3d0eb6c <+16>:  stp    x29, x30, [sp, #0x30]
+    0x1c3d0eb70 <+20>:  add    x29, sp, #0x30
+    0x1c3d0eb74 <+24>:  mov    x19, x2
+    0x1c3d0eb78 <+28>:  mov.16b v8, v0
+    0x1c3d0eb7c <+32>:  mov    x20, x0
+    0x1c3d0eb80 <+36>:  bl     0x1c5afa120
+    0x1c3d0eb84 <+40>:  adrp   x8, 189451
+    0x1c3d0eb88 <+44>:  ldrsw  x8, [x8, #0xeb8]
+    0x1c3d0eb8c <+48>:  add    x21, x20, x8
+    0x1c3d0eb90 <+52>:  ldr    s0, [x21, #0x8]
+    0x1c3d0eb94 <+56>:  stp    s0, s8, [x21]
+    0x1c3d0eb98 <+60>:  ucvtf  s0, w19
+    0x1c3d0eb9c <+64>:  fcvt   d0, s0
+    0x1c3d0eba0 <+68>:  adrp   x8, 166
+    0x1c3d0eba4 <+72>:  ldr    d1, [x8, #0xb30]
+    0x1c3d0eba8 <+76>:  fdiv   d0, d0, d1
+    0x1c3d0ebac <+80>:  str    d0, [x21, #0x18]
+    0x1c3d0ebb0 <+84>:  bl     0x1c5b36dd0
+    0x1c3d0ebb4 <+88>:  str    d0, [x21, #0x10]
+    0x1c3d0ebb8 <+92>:  mov    x0, x20
+    0x1c3d0ebbc <+96>:  ldp    x29, x30, [sp, #0x30]
+    0x1c3d0ebc0 <+100>: ldp    x20, x19, [sp, #0x20]
+    0x1c3d0ebc4 <+104>: ldp    x22, x21, [sp, #0x10]
+    0x1c3d0ebc8 <+108>: ldp    d9, d8, [sp], #0x40
+    0x1c3d0ebcc <+112>: autibsp 
+    0x1c3d0ebd0 <+116>: eor    x16, x30, x30, lsl #1
+    0x1c3d0ebd4 <+120>: tbz    x16, #0x3e, 0x1c3d0ebdc   ; <+128>
+    0x1c3d0ebd8 <+124>: brk    #0xc471
+    0x1c3d0ebdc <+128>: b      0x1c5af9fe0
+(lldb) continue
+2026-10-29 15:23:44.915382+0800 probe[6878:345789] Keyboard IDs: (
+    95158272
+)
+2026-10-29 15:23:44.919794+0800 probe[6878:345789] ID=95158272 brightness=0.812500 level=11.929999 auto=0 suppressed=0 dimmed=0
+2026-10-29 15:23:44.920282+0800 probe[6878:345789] KeyboardBacklightBrightness=0.8125
+2026-10-29 15:23:44.920534+0800 probe[6878:345789] KeyboardBacklightLevel=11.93
+2026-10-29 15:23:44.920758+0800 probe[6878:345789] KeyboardBacklightFadeSpeed=(null)
+2026-10-29 15:23:44.921000+0800 probe[6878:345789] KeyboardBacklightCapabilities=(null)
+2026-10-29 15:23:44.921813+0800 probe[6878:345789] KeyboardBacklightAutoBrightness=(null)
+2026-10-29 15:23:44.922632+0800 probe[6878:345789] KeyboardBacklightIdleDimTime=30
+2026-10-29 15:23:44.922677+0800 probe[6878:345789] [Default] Deallocating an active instance. Cancel before giving up the object ownership.
+2026-10-29 15:23:44.923058+0800 probe[6878:345789] [Default] Deallocating an active instance. Cancel before giving up the object ownership.
+Process 6878 resuming
+Process 6878 exited with status = 0 (0x00000000)

@@ -1,0 +1,4 @@
+suspend accepted=1 original=0
+fade_350 accepted=1 original=0.812500 target=0.612500
+fade_0 accepted=1 original=0.812500 target=0.612500
+restore accepted=1 brightness=0.812500 original=0.812500

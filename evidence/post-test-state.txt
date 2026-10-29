@@ -1,0 +1,12 @@
+2026-10-29 15:30:07.445 probe[11463:363078] Preferences={
+}
+2026-10-29 15:30:07.445 probe[11463:363078] Keyboard IDs: (
+    95158272
+)
+2026-10-29 15:30:07.446 probe[11463:363078] ID=95158272 brightness=0.000000 level=0.000000 auto=0 suppressed=1 dimmed=1
+2026-10-29 15:30:07.446 probe[11463:363078] KeyboardBacklightBrightness=0
+2026-10-29 15:30:07.446 probe[11463:363078] KeyboardBacklightLevel=0
+2026-10-29 15:30:07.446 probe[11463:363078] KeyboardBacklightFadeSpeed=(null)
+2026-10-29 15:30:07.446 probe[11463:363078] KeyboardBacklightCapabilities=(null)
+2026-10-29 15:30:07.446 probe[11463:363078] KeyboardBacklightAutoBrightness=(null)
+2026-10-29 15:30:07.446 probe[11463:363078] KeyboardBacklightIdleDimTime=30

@@ -1,0 +1,3 @@
+fade_350 accepted=1 original=0.000000 target=0.200000
+fade_0 accepted=1 original=0.000000 target=0.200000
+restore accepted=1 brightness=0.000000 original=0.000000
